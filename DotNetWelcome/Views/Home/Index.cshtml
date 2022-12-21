@@ -1,0 +1,27 @@
+﻿@model SubmitModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+@if (ViewBag.Email == null)
+{
+        <h1 class="mb-5">Submit Your Email</h1>
+    <form class="form-subscribe" asp-action="SubmitEmail" id="contactForm">
+        <!-- Email address input-->
+        <div class="row">
+            <div class="col">
+                <input class="form-control form-control-lg" asp-for="Email" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+                <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+                <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+            </div>
+            <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+        </div>
+    </form>
+}
+else
+{
+    <h3 class="mb-5">You submitted email : @ViewBag.Email</h3>
+}
+
